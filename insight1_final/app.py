@@ -11,6 +11,27 @@ from scipy import stats
 
 st.set_page_config(page_title="Insight 1 · Olist", page_icon="📦", layout="wide")
 
+# ── Forçar tema claro (sem precisar de .streamlit/config.toml) ──────────
+st.markdown("""
+<style>
+    :root {
+        color-scheme: light;
+    }
+    [data-testid="stAppViewContainer"],
+    [data-testid="stHeader"],
+    .stApp {
+        background-color: #ffffff !important;
+        color: #333333 !important;
+    }
+    [data-testid="stSidebar"] {
+        background-color: #F5F7FA !important;
+    }
+    [data-testid="stSidebar"] * {
+        color: #333333 !important;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # ── Paleta ──────────────────────────────────────────────────────────────
 CIANO     = "#5CC9DD"
 LAVANDA   = "#E2C0FF"
