@@ -1,63 +1,53 @@
-# 📦 Dashboard — Insight 1 Olist
+# 📦 Insight 1 · Olist | Logística & Receita
 
-**Tech Challenge POSTECH DTAT Fase 1**
+**Tech Challenge — Fase 1 | POSTECH DTAT**
 
-Dashboard Streamlit interativo que analisa a relação entre tempo de entrega e receita do Olist.
+🔗 **Dashboard:** [techchallengepos-insight1.streamlit.app](https://techchallengepos-insight1.streamlit.app/)
 
-## 🚀 Como rodar localmente
+---
 
-### 1. Instalar dependências
+## Sobre o Projeto
+
+Este projeto analisa se o crescimento de pedidos e receita do Olist está sendo limitado pela logística. A partir do cruzamento de dados geográficos e temporais de ~100 mil pedidos (2016–2018), identificamos que a eficiência logística é o fator determinante na geração de receita por estado.
+
+---
+
+## Principais Descobertas
+
+- **SP, RJ e MG concentram 62,6%** da receita total de R$ 15,36M
+- **Pearson r = −0,643** (p < 0,001) — correlação negativa entre tempo de entrega e receita
+- Volume cresceu de 262 para **7.261 pedidos/mês** (+333/mês), com desaceleração nos meses finais
+- **Sudeste: 69%** dos pedidos (entrega 10d) vs **Norte: <2%** (entrega 22d)
+
+---
+
+## Como rodar localmente
 
 ```bash
 pip install -r requirements.txt
-```
-
-### 2. Garantir que os CSVs estão na pasta raiz
-
-```
-insight1/
-├── app.py
-├── requirements.txt
-├── insight1_mensal.csv
-├── insight1_por_uf.csv
-├── insight1_regiao_mensal.csv
-├── insight1_logistica.ipynb
-├── relatorio_executivo_insight1.docx
-└── .streamlit/
-    └── config.toml
-```
-
-### 3. Rodar o app
-
-```bash
 streamlit run app.py
 ```
 
-O app abrirá automaticamente em http://localhost:8501
+---
 
-## 📊 Estrutura do Dashboard
+## Estrutura
 
-| Aba | Conteúdo |
-|-----|----------|
-| Resumo Executivo | KPIs, frases de impacto, scatter geral |
-| Análise Temporal | Evolução mensal, evolução por região |
-| Geografia & Logística | Receita por UF, ticket médio, tempo por região |
-| Recomendações | Síntese, recomendação ao investidor, limitações |
-
-## 🎛️ Filtros Interativos (Sidebar)
-
-- **Região** — multiselect por região geográfica
-- **Estado (UF)** — filtra por estado do cliente
-- **Período** — slider de meses
-- **Tempo de entrega** — faixa em dias
-
-Todos os gráficos atualizam em tempo real.
-
-## 📁 Dados
-
-Os CSVs são gerados pelo notebook `insight1_logistica.ipynb` a partir do dataset original.
-
-Dataset original: [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) (~100 mil pedidos, 2016–2018)
+| Arquivo | Descrição |
+|---------|-----------|
+| `app.py` | Dashboard Streamlit |
+| `requirements.txt` | Dependências |
+| `insight1_mensal.csv` | Dados agregados por mês |
+| `insight1_por_uf.csv` | Dados agregados por UF |
+| `insight1_regiao_mensal.csv` | Dados por região/mês |
+| `insight1_logistica.ipynb` | Notebook com análise completa |
+| `relatorio_executivo_insight1.docx` | Relatório executivo |
 
 ---
+
+## Fonte de Dados
+
+OLIST. Brazilian E-Commerce Public Dataset. Kaggle. Disponível em: [kaggle.com/datasets/olistbr/brazilian-ecommerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
+
+---
+
 POSTECH DTAT Fase 1 — Tech Challenge
