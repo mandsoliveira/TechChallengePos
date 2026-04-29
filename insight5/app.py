@@ -494,7 +494,9 @@ with tab3:
             ))
 
     fig_peso.update_layout(
-        **PB, height=520, hovermode="closest",
+        paper_bgcolor="white", plot_bgcolor="white",
+        font=dict(size=12, color="#222"),
+        height=520, hovermode="closest",
         xaxis=dict(title="Peso Médio do Produto (g)", gridcolor=GRID),
         yaxis=dict(title="Tempo Médio de Entrega (dias)", gridcolor=GRID),
         margin=dict(l=70, r=110, t=30, b=80),
