@@ -453,12 +453,18 @@ with tab3:
         x=f_cat["peso_medio_g"],
         y=f_cat["tempo_medio_entrega"],
         mode="markers",
+        name="Categorias",
         marker=dict(
             size=np.sqrt(f_cat["qtd_pedidos"]) / 2 + 6,
             color=f_cat["receita_total"],
             colorscale=[[0, CIANO], [0.5, MOSTARDA], [1, VERMELHO]],
             showscale=True,
-            colorbar=dict(title="Receita (R$)", tickformat=",.0f"),
+            colorbar=dict(
+                title=dict(text="Receita (R$)", side="right"),
+                tickformat=",.0f",
+                x=1.02, xanchor="left",
+                len=0.85,
+            ),
             opacity=0.75,
             line=dict(width=1, color="white"),
         ),
@@ -488,9 +494,16 @@ with tab3:
             ))
 
     fig_peso.update_layout(
-        **PB, height=480, hovermode="closest",
+        **PB, height=520, hovermode="closest",
         xaxis=dict(title="Peso Médio do Produto (g)", gridcolor=GRID),
         yaxis=dict(title="Tempo Médio de Entrega (dias)", gridcolor=GRID),
+        margin=dict(l=70, r=110, t=30, b=80),
+        legend=dict(
+            orientation="h",
+            yanchor="top", y=-0.15,
+            xanchor="left", x=0,
+            bgcolor="rgba(255,255,255,0.8)",
+        ),
     )
     st.plotly_chart(fig_peso, key="peso", theme=None)
     st.markdown(
